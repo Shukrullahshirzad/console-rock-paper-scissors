@@ -9,7 +9,7 @@ function computerChoice(){
 
 let playRound = function(playerSelection, computerSelection){
     if(playerSelection === "paper" && computerSelection === "rock"){
-        return [tue, "You win! Paper covers Rock"]
+        return [true, "You win! Paper covers Rock"]
     }
     else if(playerSelection === "scissors" && computerSelection === "paper"){
         return [true, "You win! Scissors cuts Paper"]
@@ -37,14 +37,17 @@ function game(){
 
     for (let i = 0; i<5; i++){
         let playerSelection = (prompt("what do you choose? Rock, Paper of Scissors")).toLocaleLowerCase();
-        console.log(playRound(playerSelection, computerChoice())[1]);
-        if(playRound(playerSelection, computerChoice())[0]){
+        let result = playRound(playerSelection, computerChoice())
+        console.log(result[1]);
+        if(result[0]){
             user+=1;
         }
-        else if(playRound(playerSelection, computerChoice())[0] === false){
+        else if(result[0] === false){
             comp+=1;
         }
         
     }
-    return `Game over, you won ${user} times and computer won ${comp} times`
+    return `Game over, you won ${user} times and computer won ${comp} time(s)`
 }
+
+console.log(game())
