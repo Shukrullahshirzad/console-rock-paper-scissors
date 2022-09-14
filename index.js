@@ -9,8 +9,8 @@ function computerChoice(){
 
 let playRound = function(playerSelection, computerSelection){
     if(playerSelection === "paper" && computerSelection === "rock"){
-        return [true, "You win! Paper covers Rock"]
-    }
+        return [true, "You win! Paper covers Rock"] //return an array so that i can use boolean value for 
+    }                                               // determine the winner
     else if(playerSelection === "scissors" && computerSelection === "paper"){
         return [true, "You win! Scissors cuts Paper"]
     }
@@ -37,9 +37,9 @@ function game(){
 
     for (let i = 0; i<5; i++){
         let playerSelection = (prompt("what do you choose? Rock, Paper of Scissors")).toLocaleLowerCase();
-        let result = playRound(playerSelection, computerChoice())
-        console.log(result[1]);
-        if(result[0]){
+        let result = playRound(playerSelection, computerChoice()) // the result of the function is stored in the varialble
+        console.log(result[1]);                                  // so that it can be used to display the result and also 
+        if(result[0]){                                            // in the if statement
             user+=1;
         }
         else if(result[0] === false){
