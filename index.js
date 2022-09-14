@@ -7,26 +7,33 @@ function computerChoice(){
 
 // one round of the game
 
-function playRound(playerSelection, computerSelection){
+let playRound = function(playerSelection, computerSelection){
     if(playerSelection === "paper" && computerSelection === "rock"){
-        return "You win! Paper covers Rock"
+        return [tue, "You win! Paper covers Rock"]
     }
     else if(playerSelection === "scissors" && computerSelection === "paper"){
-        return "You win! Scissors cuts Paper"
+        return [true, "You win! Scissors cuts Paper"]
     }
     else if(playerSelection === "rock" && computerSelection === "scissors"){
-        return "You win! Rock beats Scissors"
+        return [true, "You win! Rock beats Scissors"]
     }
     else if(playerSelection === "paper" && computerSelection === "scissors"){
-        return "You Lose! Scissors cuts Paper"
+        return [false, "You Lose! Scissors cuts Paper"]
     }
     else if(playerSelection === "rock" && computerSelection === "paper"){
-        return "You Lose! Paper covers Rock"
+        return [false, "You Lose! Paper covers Rock"]
     }
     if(playerSelection === "scissors" && computerSelection === "rock"){
-        return "You Lose! Rock beats Scissors"
+        return [false, "You Lose! Rock beats Scissors"]
     }
     else{
-        return "Draw"
+        return [null, "Draw"]
     }
+}
+
+
+for (let i = 0; i<5; i++){
+    let playerSelection = (prompt("what do you choose? Rock, Paper of Scissors")).toLocaleLowerCase();
+    console.log(playRound(playerSelection, computerChoice()));
+    
 }
