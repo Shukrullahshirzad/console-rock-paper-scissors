@@ -31,9 +31,20 @@ let playRound = function(playerSelection, computerSelection){
     }
 }
 
+function game(){
+    let user = 0;
+    let comp = 0;
 
-for (let i = 0; i<5; i++){
-    let playerSelection = (prompt("what do you choose? Rock, Paper of Scissors")).toLocaleLowerCase();
-    console.log(playRound(playerSelection, computerChoice()));
-    
+    for (let i = 0; i<5; i++){
+        let playerSelection = (prompt("what do you choose? Rock, Paper of Scissors")).toLocaleLowerCase();
+        console.log(playRound(playerSelection, computerChoice())[1]);
+        if(playRound(playerSelection, computerChoice())[0]){
+            user+=1;
+        }
+        else if(playRound(playerSelection, computerChoice())[0] === false){
+            comp+=1;
+        }
+        
+    }
+    return `Game over, you won ${user} times and computer won ${comp} times`
 }
